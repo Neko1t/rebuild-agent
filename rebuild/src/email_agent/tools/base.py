@@ -1,5 +1,7 @@
-# 这个文件统一提供工具列表, 用于在graph中调用
-from typing import Dict, List, Callable, Any, Optional
+"""Provide the tools available to the email agent."""
+
+from typing import Dict, List, Optional
+
 from langchain_core.tools import BaseTool
 
 
@@ -14,8 +16,8 @@ def get_tools(tool_names: Optional[List[str]] = None, include_gmail: bool = Fals
         List of tool objects
     """
     # Import default tools
-    from rebuild.src.email_agent.tools.email import write_email, Done, Question, triage_email
-    from rebuild.src.email_agent.tools.calendar import schedule_meeting, check_calendar_availability
+    from email_agent.tools.calendar import check_calendar_availability, schedule_meeting
+    from email_agent.tools.email import Done, Question, write_email
 
     # Base tools dictionary
     all_tools = {
