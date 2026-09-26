@@ -86,7 +86,7 @@ agent_builder.add_conditional_edges(
         END: END,
     },
 )
-agent_builder.add_edge("environment", "llm_call")
+agent_builder.add_edge("environment", "llm_call") # REACT loop
 
 # Compile the agent
 agent = agent_builder.compile()
